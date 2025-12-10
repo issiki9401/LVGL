@@ -1015,14 +1015,14 @@
 
 /** FFmpeg library for image decoding and playing videos.
  *  Supports all major image formats so do not enable other image decoder with it. */
-#define LV_USE_FFMPEG 0
+#define LV_USE_FFMPEG 1
 #if LV_USE_FFMPEG
     /** Dump input information to stderr */
     #define LV_FFMPEG_DUMP_FORMAT 0
     /** Use lvgl file path in FFmpeg Player widget
      *  You won't be able to open URLs after enabling this feature.
      *  Note that FFmpeg image decoder will always use lvgl file system. */
-    #define LV_FFMPEG_PLAYER_USE_LV_FS 0
+    #define LV_FFMPEG_PLAYER_USE_LV_FS 1
 #endif
 
 /*==================

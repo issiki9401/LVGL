@@ -24,6 +24,7 @@
 #include "lvgl/demos/lv_demos.h"
 #include <SDL.h>
 
+
 #include "hal/hal.h"
 
 /*********************
@@ -65,18 +66,23 @@ int main(int argc, char **argv)
 
   /* Run the default demo */
   /* To try a different demo or example, replace this with one of: */
-  /* - lv_demo_benchmark(); */
+  /* lv_demo_benchmark(); */
   /* - lv_demo_stress(); */
   /* - lv_example_label_1(); */
   /* - etc. */
-  lv_demo_widgets();
+  //lv_demo_widgets();
+  lv_example_ffmpeg_1();
+  //lv_example_ffmpeg_1();
+  //lv_example_ffmpeg_2();
+  //lv_example_freetype_1();
+  //lv_example_get_started_1();
 
   while(1) {
     /* Periodically call the lv_task handler.
      * It could be done in a timer interrupt or an OS task too.*/
     uint32_t sleep_time_ms = lv_timer_handler();
     if(sleep_time_ms == LV_NO_TIMER_READY){
-	sleep_time_ms =  LV_DEF_REFR_PERIOD;
+  sleep_time_ms =  LV_DEF_REFR_PERIOD;
     }
 #ifdef _MSC_VER
     Sleep(sleep_time_ms);
@@ -95,3 +101,19 @@ int main(int argc, char **argv)
  *   STATIC FUNCTIONS
  **********************/
 
+
+
+/**
+ * Basic example to create a "Hello world" label
+ */
+void lv_example_get_started_1(void)
+{
+    /*Change the active screen's background color*/
+    lv_obj_set_style_bg_color(lv_screen_active(), lv_color_hex(0x003a57), LV_PART_MAIN);
+
+    /*Create a white label, set its text and align it to the center*/
+    lv_obj_t * label = lv_label_create(lv_screen_active());
+    lv_label_set_text(label, "Hello world\n 嵌入式系統設計\n Hi tingyun");
+    lv_obj_set_style_text_color(lv_screen_active(), lv_color_hex(0xffffff), LV_PART_MAIN);
+    lv_obj_align(label, LV_ALIGN_CENTER, 0, 0);
+}
