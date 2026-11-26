@@ -1,6 +1,5 @@
 cmake_minimum_required(VERSION 3.12.4)
 project(lvgl C CXX)
-include_directories(/usr/include/freetype2)
 # Set the correct FreeRTOS port for your system (e.g., Posix for WSL)
 set(FREERTOS_PORT GCC_POSIX CACHE STRING "Port for FreeRTOS on Posix environment")
 
@@ -40,8 +39,8 @@ include_directories(${PROJECT_SOURCE_DIR}/main/inc)
 option(LV_USE_DRAW_SDL "Use SDL draw unit" OFF)
 option(LV_USE_LIBPNG "Use libpng to decode PNG" OFF)
 option(LV_USE_LIBJPEG_TURBO "Use libjpeg turbo to decode JPEG" OFF)
-option(LV_USE_FFMPEG "Use libffmpeg to display video using lv_ffmpeg" ON)
-option(LV_USE_FREETYPE "Use freetype library" ON)
+option(LV_USE_FFMPEG "Use libffmpeg to display video using lv_ffmpeg" OFF)
+option(LV_USE_FREETYPE "Use freetype library" OFF)
 
 # Set C and C++ standards
 set(CMAKE_C_STANDARD 99)
