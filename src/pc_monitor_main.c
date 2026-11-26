@@ -16,7 +16,7 @@
   #include <pthread.h>
 #endif
 #include "lvgl/lvgl.h"
-#include "lvgl/examples/lv_examples.h"
+#include "project/pc_monitor/lv_example_pc_monitor.h"
 #include <SDL.h>
 
 #include "hal/hal.h"

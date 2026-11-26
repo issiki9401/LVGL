@@ -122,7 +122,7 @@ target_compile_definitions(main PRIVATE LV_CONF_INCLUDE_SIMPLE)
 target_link_libraries(main ${MAIN_LIBS})
 
 # PC Status Monitor Panel target (電腦狀態監測面板)
-set(PC_MONITOR_SOURCES src/mouse_cursor_icon.c src/hal/hal.c src/pc_monitor_main.c)
+set(PC_MONITOR_SOURCES src/mouse_cursor_icon.c src/hal/hal.c src/pc_monitor_main.c project/pc_monitor/lv_example_pc_monitor_1.c)
 add_executable(pc_monitor ${PC_MONITOR_SOURCES})
 target_compile_definitions(pc_monitor PRIVATE LV_CONF_INCLUDE_SIMPLE)
 target_link_libraries(pc_monitor ${MAIN_LIBS})
