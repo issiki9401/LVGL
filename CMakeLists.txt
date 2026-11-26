@@ -40,7 +40,7 @@ option(LV_USE_DRAW_SDL "Use SDL draw unit" OFF)
 option(LV_USE_LIBPNG "Use libpng to decode PNG" OFF)
 option(LV_USE_LIBJPEG_TURBO "Use libjpeg turbo to decode JPEG" OFF)
 option(LV_USE_FFMPEG "Use libffmpeg to display video using lv_ffmpeg" OFF)
-option(LV_USE_FREETYPE "Use freetype library" OFF)
+option(LV_USE_FREETYPE "Use freetype library" ON)
 
 # Set C and C++ standards
 set(CMAKE_C_STANDARD 99)
@@ -120,6 +120,14 @@ endif()
 add_executable(main ${MAIN_SOURCES})
 target_compile_definitions(main PRIVATE LV_CONF_INCLUDE_SIMPLE)
 target_link_libraries(main ${MAIN_LIBS})
+
+# PC Status Monitor Panel target (電腦狀態監測面板)
+set(PC_MONITOR_SOURCES src/mouse_cursor_icon.c src/hal/hal.c src/pc_monitor_main.c)
+add_executable(pc_monitor ${PC_MONITOR_SOURCES})
+target_compile_definitions(pc_monitor PRIVATE LV_CONF_INCLUDE_SIMPLE)
+target_link_libraries(pc_monitor ${MAIN_LIBS})
+add_custom_target(run_pc_monitor COMMAND ${EXECUTABLE_OUTPUT_PATH}/pc_monitor DEPENDS pc_monitor)
+
 
 # On Windows, GUI applications do not show a console by default,
 # which hides log output. This ensures a console is available for logging.
